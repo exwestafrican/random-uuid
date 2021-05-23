@@ -1,0 +1,23 @@
+name: Python package
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+        - uses: actions/checkout@v2
+        - uses: actions/setup-python@v2
+          with:
+            python-version: '3.x' 
+            architecture: 'x64'
+        - name: Install dependencies
+          run: |
+            python -m pip install --upgrade pip
+            if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+        - name: Run Tests
+          env:
+            # place holder env for github action
+            SECRET_KEY: vhw@q-&7tk23*395wgj^c4)f8gvdvw&uhq$e-6$j(11)quz1t)
+          run: |
+            pytest
