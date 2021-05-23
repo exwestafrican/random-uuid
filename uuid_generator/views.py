@@ -15,4 +15,5 @@ class RandomGeneratorViewSet(viewsets.ViewSet, generics.GenericAPIView):
         return RandomGeneratorDao.fetch_all_uuids() + RandomGeneratorDoa.generate_uuid()
 
     def list(self, request):
-        pass
+        queryset = self.get_queryset()
+        page = self.paginate_queryset(queryset)
