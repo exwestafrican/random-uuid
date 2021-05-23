@@ -16,5 +16,7 @@ jobs:
             python -m pip install --upgrade pip
             if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
         - name: Run Tests
+          env:
+            SECRET_KEY: vhw@q-&7tk23*395wgj^c4)f8gvdvw&uhq$e-6$j(11)quz1t)
           run: |
             pytest
