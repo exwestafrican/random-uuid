@@ -8,4 +8,4 @@ class RandomGeneratorSerializer(serializers.BaseSerializer):
         created_at = instance.created_at.strftime(
             settings.REST_FRAMEWORK.get("DATETIME_FORMAT")
         )
-        return {created_at: instance.id}
+        return {created_at: instance.id.hex}
