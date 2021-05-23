@@ -17,3 +17,7 @@ class RandomGeneratorViewSet(viewsets.ViewSet, generics.GenericAPIView):
     def list(self, request):
         queryset = self.get_queryset()
         page = self.paginate_queryset(queryset)
+        serializer = self.serializer_class(page, many=True)
+        return Response(
+            self.get_paginated_response(serializer.data), status=status.HTTP_200_OK
+        )
