@@ -22,5 +22,5 @@ EXTERNAL_URLS = uuid_generator_patterns
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("api/v1", include((EXTERNAL_URLS))),
+    path("api/v1/", include((EXTERNAL_URLS))),
 ]
