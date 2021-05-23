@@ -14,8 +14,13 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import include, path
+
+from uuid_generator.urls import uuid_generator_patterns
+
+EXTERNAL_URLS = uuid_generator_patterns
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path("admin/", admin.site.urls),
+    path("api/v1", include((EXTERNAL_URLS))),
 ]
